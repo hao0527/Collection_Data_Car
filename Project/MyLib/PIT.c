@@ -2,9 +2,9 @@
 
 void PIT_allocation_init()                  //配置中断服务函数   
 {   
-	pit_init();                             //周期定时器模块初始化
+    pit_init();                             //周期定时器模块初始化
     
-	pit_interrupt_ms(PIT_CH0,10);           //初始化pit通道0 周期10ms
+    pit_interrupt_ms(PIT_CH0,10);           //初始化pit通道0 周期10ms
     pit_interrupt_ms(PIT_CH1,5);
     pit_interrupt_ms(PIT_CH2,3);
 //    pit_interrupt_ms(PIT_CH3,500);
