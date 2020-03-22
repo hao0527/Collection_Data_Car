@@ -3,10 +3,6 @@
 
 
 void PIT_allocation_init(); 
-void PIT0_IRQHandler();
-void PIT1_IRQHandler();
-void PIT2_IRQHandler();
-
+void PIT_IRQHandler(void);
 
 #endif
-

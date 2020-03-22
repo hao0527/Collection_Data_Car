@@ -19,7 +19,7 @@ void main(void)
     DG_ADC_Init();                  //电感ADC初始化
 
     //此处编写用户代码(例如：外设初始化代码等)
-
+    PIT_allocation_init();          //配置中断服务函数
     EnableGlobalIRQ(0);             //总中断最后开启
     while(1)
     {
