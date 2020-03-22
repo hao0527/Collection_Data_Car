@@ -45,7 +45,7 @@ void Get_ADC()
     X6 = adc_mean_filter(ADC_1,ADC1_CH0_B12,12);
     X7 = adc_mean_filter(ADC_1,ADC1_CH0_B12,12);
     
-    XL = ((XL - Min_DG)/Max_DG) * 100.f;                                            //归一化		Value = ((Expression-Min)/Max)*100.0f
+    XL = ((XL - Min_DG)/Max_DG) * 100.f;                                            //归一化   Value = ((Expression-Min)/Max)*100.0f
     YL = ((YL - Min_DG)/Max_DG) * 100.f;
     XM = ((XM - Min_DG)/Max_DG) * 100.f;
     YR = ((YR - Min_DG)/Max_DG) * 100.f;
