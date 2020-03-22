@@ -1251,6 +1251,16 @@
               <FileType>5</FileType>
               <FilePath>..\MyLib\DianGan.h</FilePath>
             </File>
+            <File>
+              <FileName>PIT.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\MyLib\PIT.c</FilePath>
+            </File>
+            <File>
+              <FileName>PIT.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\MyLib\PIT.h</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>
@@ -2499,6 +2509,16 @@
               <FileName>DianGan.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\MyLib\DianGan.h</FilePath>
+            </File>
+            <File>
+              <FileName>PIT.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\MyLib\PIT.c</FilePath>
+            </File>
+            <File>
+              <FileName>PIT.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\MyLib\PIT.h</FilePath>
             </File>
           </Files>
         </Group>
