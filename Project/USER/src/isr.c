@@ -23,42 +23,42 @@
 
 
 
-uint32 te;
-void PIT_IRQHandler(void)
-{
-    if(PIT_FLAG_GET(PIT_CH0))
-    {
-        PIT_FLAG_CLEAR(PIT_CH0);
-        gpio_toggle(C14);
-    }
-    
-    if(PIT_FLAG_GET(PIT_CH1))
-    {
-        PIT_FLAG_CLEAR(PIT_CH1);
-        gpio_toggle(C15);
-    }
-    
-    if(PIT_FLAG_GET(PIT_CH2))
-    {
-        PIT_FLAG_CLEAR(PIT_CH2);
-        gpio_toggle(D5);
-    }
-    
-    if(PIT_FLAG_GET(PIT_CH3))
-    {
-        PIT_FLAG_CLEAR(PIT_CH3);
-        gpio_toggle(D7);
-    }
+//uint32 te;
+//void PIT_IRQHandler(void)
+//{
+//    if(PIT_FLAG_GET(PIT_CH0))
+//    {
+//        PIT_FLAG_CLEAR(PIT_CH0);
+//        gpio_toggle(C14);
+//    }
+//    
+//    if(PIT_FLAG_GET(PIT_CH1))
+//    {
+//        PIT_FLAG_CLEAR(PIT_CH1);
+//        gpio_toggle(C15);
+//    }
+//    
+//    if(PIT_FLAG_GET(PIT_CH2))
+//    {
+//        PIT_FLAG_CLEAR(PIT_CH2);
+//        gpio_toggle(D5);
+//    }
+//    
+//    if(PIT_FLAG_GET(PIT_CH3))
+//    {
+//        PIT_FLAG_CLEAR(PIT_CH3);
+//        gpio_toggle(D7);
+//    }
 
-    __DSB();
-}
+//    __DSB();
+//}
 
 
-void GPIO1_Combined_16_31_IRQHandler(void)
-{
-    mt9v032_vsync();
-    
-}
+//void GPIO1_Combined_16_31_IRQHandler(void)
+//{
+//    mt9v032_vsync();
+//    
+//}
 
 
 
