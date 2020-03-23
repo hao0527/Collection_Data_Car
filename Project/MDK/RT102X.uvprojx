@@ -1261,6 +1261,16 @@
               <FileType>5</FileType>
               <FilePath>..\MyLib\PIT.h</FilePath>
             </File>
+            <File>
+              <FileName>PID.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\MyLib\PID.c</FilePath>
+            </File>
+            <File>
+              <FileName>PID.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\MyLib\PID.h</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>
@@ -2519,6 +2529,16 @@
               <FileName>PIT.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\MyLib\PIT.h</FilePath>
+            </File>
+            <File>
+              <FileName>PID.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\MyLib\PID.c</FilePath>
+            </File>
+            <File>
+              <FileName>PID.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\MyLib\PID.h</FilePath>
             </File>
           </Files>
         </Group>
