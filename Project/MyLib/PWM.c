@@ -1,12 +1,21 @@
 #include "headfile.h"
 
-int PID, PWM_DianJi_L, PWM_DianJi_R, PWM_DuoJi;
+int PID, PWM_DianJi_L, PWM_DianJi_R;                //全局变量
+int PWM_DuoJi=3118;                                 //全局变量
+int DuoJi_Left=2417, DuoJi_Right=3817;              //全局变量
 
 
 int PWM_Limit(int value,int limit)                  //对value限幅在（1，limit）范围
 {
     value = value > limit ?  limit : value;
     value = value < 1 ? 1 : value;
+    return (int)value;
+}
+
+int DuoJi_PWM_Limit(int value)                      //对value限幅在（2417，3817）范围
+{
+    if(value>DuoJi_Right) value=DuoJi_Right;
+    if(value<DuoJi_Left) value=DuoJi_Left;
     return (int)value;
 }
 
@@ -26,95 +35,41 @@ void PUTOUT_PWM()                                   //输出PWM波
     pwm_duty(PWM1_MODULE0_CHB_B23, PWM_DuoJi);      //舵机
 }
 
-//判断不同状态，获取PWM占空比，实现从PID到PWM
+void GET_DuoJi_PWM()                                //到时候这里用陀螺仪来获取Turn_Flag
+{   
+//    if((XL1>=(0.094F*Basis_XL1))&&(XR1>=(0.211f*Basis_XR1))) Turn_Flag=3;
+//    if((XL1>=(0.203F*Basis_XL1))&&(XR1>=(0.368f*Basis_XR1))) Turn_Flag=2;
+//    if((XL1>=(0.406F*Basis_XL1))&&(XR1>=(0.509f*Basis_XR1))) Turn_Flag=1;
+//    if((XL1>=(0.500F*Basis_XL1))&&(XR1>=(0.570f*Basis_XR1))) Turn_Flag=0;
+//    if((XL1<=(0.094F*Basis_XL1))||(XR1<=(0.211f*Basis_XR1))) Turn_Flag=4;
+//    
+//    switch (Turn_Flag)
+//    {
+//    case 0:{Speed_Flag=0;PID=Pid_Count_0(0,1,0,0,NormalizationX1);PID_Limit(PID,100);PWM_DuoJi=PID+DuoJi_Mid;break;}
+//    case 1:{Speed_Flag=1;PID=Pid_Count_0(0,2,0,0,NormalizationX1);PID_Limit(PID,250);PWM_DuoJi=PID+DuoJi_Mid;break;}
+//    case 2:{Speed_Flag=2;PID=Pid_Count_0(0,3,0,0,NormalizationX1);PID_Limit(PID,400);PWM_DuoJi=PID+DuoJi_Mid;break;}
+//    case 3:{Speed_Flag=3;PID=Pid_Count_1(0,4,0,0,NormalizationX1);PID_Limit(PID,550);PWM_DuoJi=PID+DuoJi_Mid;break;}
+//    case 4:{Speed_Flag=4;PID=Pid_Count_1(0,5,0,0,NormalizationX1);PID_Limit(PID,700);PWM_DuoJi=PID+DuoJi_Mid;break;}
+//    }
+}
+
 void GET_PWM()
 {
-/*
-    //直道PID
-    if(fabs(Normalization1)<50)
-    {
-        PID=Pid_Count_0(0,6,0,20,Normalization1);
-        if(fabs(Normalization1)<15)
-            PID=Pid_Count_0(0,3,0,10,Normalization1);
-        PID_Limit(2000);
-        PWM_R = 4900 - PID;
-        PWM_L = 5000 + PID;
-    }
+//    if(OLED_Flag!=3)
+//    {
+//        GET_DuoJi_PWM();
+//    }
+//    else
+//        PWM_DuoJi=DuoJi_Mid;                //按键调舵机
     
-    //转弯PID
-    if(fabs(Normalization1)>=50)
-    {
-        PID=Pid_Count_0(0,6,0,20,Normalization1);
-        PID_Limit(2000);
-        PWM_R = 3900 - PID;
-        PWM_L = 4000 + PID;
-        PWM_Limit(10000);
-    }
-
-    //直弯左转
-    if(Normalization2 > 0)
-    {
-        //be();
-        PID=Pid_Count_1(0,10,0,50,Normalization2);
-        PID_Limit(3000);
-        PWM_L = 4000 + PID*1.3;   //-这个
-        PWM_R = 3900 - PID*1.3;
-        PWM_Limit(10000);
-    }
+    GET_DuoJi_PWM();                        //按键调舵机注释掉了，先用这个
+    PWM_DuoJi = DuoJi_PWM_Limit(PWM_DuoJi);
     
-    //直弯右转
-    if(Normalization2 < -0)
-    {
-        //be();
-        PID=Pid_Count_1(0,10,0,50,Normalization2);
-        PID_Limit(3000);
-        PWM_L = 4000 + PID*1*1.3;
-        PWM_R = 3900 - PID*1*1.3;   //-这个
-        PWM_Limit(10000);
-    }
-    //跑飞
-
-    if(L1==1&&L2==1&&R1==1&&R2==1)
-    {
-        //PWM_R = 1500;
-        //PWM_L = 1500;
-    }
-    //入环
-    if(diff1<-150&&L1>50)
-    {
-        bebebe();
-     
-        PWM_L = 1000;
-        PWM_R = 3000;
-        PUTOUT_PWM();
-        pit_delay_ms(PIT2,500);
-        PWM_L = 5000;
-        PWM_R = 4000;
-        PUTOUT_PWM();
-        pit_delay_ms(PIT2,500);
-
-    }
-    
-     //出环
-    if(diff1>150&&R1>50)
-    {
-        be();
-        PWM_L = 5000;
-        PWM_R = 5400;
-        PUTOUT_PWM();
-        pit_delay_ms(PIT2,800);
-    }
-
-    //十字路
-    else if(L2>230&&R2>230)
-    {
-        //be();
-        PWM_L = 5000;
-        PWM_R = 5000;
-        PUTOUT_PWM();
-        pit_delay_ms(PIT2,200);
-    }
-*/
+//    PWM_DianJi_L = Pid_Count_SPEED(Get_Speed_aim(Speed_Flag),8,9,10,SPEED_DianJi);
+//    PWM_DianJi_R = Pid_Count_SPEED(Get_Speed_aim(Speed_Flag),8,9,10,SPEED_DianJi);
+//    PWM_DianJi = PWM_Limit(PWM_DianJi,8000);
 }
+
+
 
 
