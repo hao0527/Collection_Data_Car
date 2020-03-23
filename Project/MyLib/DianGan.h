@@ -11,6 +11,6 @@ extern float NormalizationX, NormalizationY;    //全局变量
 void DG_ADC_Init();
 void Get_ADC();
 void ADC_Compare();
-void Get_Basis_DG();
+//void Get_Basis_DG();
 
 #endif

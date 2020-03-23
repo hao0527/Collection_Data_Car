@@ -1,41 +1,43 @@
 #include "headfile.h"
 
-int PID, PWM_DianJi_L, PWM_DianJi_R;                //å…¨å±€å˜é‡
-int PWM_DuoJi=3118;                                 //å…¨å±€å˜é‡
-int DuoJi_Left=2417, DuoJi_Right=3817;              //å…¨å±€å˜é‡
+//²»µ½2.5mË«µç»ú²îËÙ¿ØÖÆ²»ÐèÒª
+
+int PID, PWM_DianJi_L, PWM_DianJi_R;                //È«¾Ö±äÁ¿
+int PWM_DuoJi=3118;                                 //È«¾Ö±äÁ¿
+int DuoJi_Left=2417, DuoJi_Right=3817;              //È«¾Ö±äÁ¿
 
 
-int PWM_Limit(int value,int limit)                  //å¯¹valueé™å¹…åœ¨ï¼ˆ1ï¼Œlimitï¼‰èŒƒå›´
+int PWM_Limit(int value,int limit)                  //¶ÔvalueÏÞ·ùÔÚ£¨1£¬limit£©·¶Î§
 {
     value = value > limit ?  limit : value;
     value = value < 1 ? 1 : value;
     return (int)value;
 }
 
-int DuoJi_PWM_Limit(int value)                      //å¯¹valueé™å¹…åœ¨ï¼ˆ2417ï¼Œ3817ï¼‰èŒƒå›´
+int DuoJi_PWM_Limit(int value)                      //¶ÔvalueÏÞ·ùÔÚ£¨2417£¬3817£©·¶Î§
 {
     if(value>DuoJi_Right) value=DuoJi_Right;
     if(value<DuoJi_Left) value=DuoJi_Left;
     return (int)value;
 }
 
-void PWM_allocation_init()                          //é…ç½®PWMè¾“å‡ºç®¡è„š
+void PWM_allocation_init()                          //ÅäÖÃPWMÊä³ö¹Ü½Å
 {
-    pwm_init(PWM1_MODULE0_CHB_B23, 15000, 0);       //ç”µæœºï¼ˆé¢‘çŽ‡ç»™15kHzï¼‰æœ€å¤§å ç©ºæ¯”é»˜è®¤ä¸º50000
+    pwm_init(PWM1_MODULE0_CHB_B23, 15000, 0);       //µç»ú£¨ÆµÂÊ¸ø15kHz£©×î´óÕ¼¿Õ±ÈÄ¬ÈÏÎª50000
     pwm_init(PWM1_MODULE0_CHB_B23, 15000, 0);
     
-    pwm_init(PWM1_MODULE0_CHB_B23, 200, 0);         //èˆµæœº
+    pwm_init(PWM1_MODULE0_CHB_B23, 200, 0);         //¶æ»ú
 }  
 
-void PUTOUT_PWM()                                   //è¾“å‡ºPWMæ³¢
+void PUTOUT_PWM()                                   //Êä³öPWM²¨
 {
-    pwm_duty(PWM1_MODULE0_CHB_B23, PWM_DianJi_L);   //ç”µæœº
+    pwm_duty(PWM1_MODULE0_CHB_B23, PWM_DianJi_L);   //µç»ú
     pwm_duty(PWM1_MODULE0_CHB_B23, PWM_DianJi_R);
     
-    pwm_duty(PWM1_MODULE0_CHB_B23, PWM_DuoJi);      //èˆµæœº
+    pwm_duty(PWM1_MODULE0_CHB_B23, PWM_DuoJi);      //¶æ»ú
 }
 
-void GET_DuoJi_PWM()                                //åˆ°æ—¶å€™è¿™é‡Œç”¨é™€èžºä»ªæ¥èŽ·å–Turn_Flag
+void GET_DuoJi_PWM()                                //µ½Ê±ºòÕâÀïÓÃÍÓÂÝÒÇÀ´»ñÈ¡Turn_Flag
 {   
 //    if((XL1>=(0.094F*Basis_XL1))&&(XR1>=(0.211f*Basis_XR1))) Turn_Flag=3;
 //    if((XL1>=(0.203F*Basis_XL1))&&(XR1>=(0.368f*Basis_XR1))) Turn_Flag=2;
@@ -60,9 +62,9 @@ void GET_PWM()
 //        GET_DuoJi_PWM();
 //    }
 //    else
-//        PWM_DuoJi=DuoJi_Mid;                //æŒ‰é”®è°ƒèˆµæœº
+//        PWM_DuoJi=DuoJi_Mid;                //°´¼üµ÷¶æ»ú
     
-    GET_DuoJi_PWM();                        //æŒ‰é”®è°ƒèˆµæœºæ³¨é‡ŠæŽ‰äº†ï¼Œå…ˆç”¨è¿™ä¸ª
+    GET_DuoJi_PWM();                        //°´¼üµ÷¶æ»ú×¢ÊÍµôÁË£¬ÏÈÓÃÕâ¸ö
     PWM_DuoJi = DuoJi_PWM_Limit(PWM_DuoJi);
     
 //    PWM_DianJi_L = Pid_Count_SPEED(Get_Speed_aim(Speed_Flag),8,9,10,SPEED_DianJi);

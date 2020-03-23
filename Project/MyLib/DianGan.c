@@ -32,6 +32,7 @@ void DG_ADC_Init()                                                              
 
 void Get_ADC()
 {
+    //后期换中值均值滤波
     XL = adc_mean_filter(ADC_1,ADC1_CH0_B12,12);                                    //ADC1模块的0通道(使用B12引脚)转换10次，返回平均值
     YL = adc_mean_filter(ADC_1,ADC1_CH0_B12,12);
     XM = adc_mean_filter(ADC_1,ADC1_CH0_B12,12);
