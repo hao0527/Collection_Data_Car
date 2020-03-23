@@ -78,5 +78,6 @@
 #include "DianGan.h"
 #include "PIT.h"
 #include "PID.h"
+#include "PWM.h"
 
 #endif

@@ -1271,6 +1271,16 @@
               <FileType>5</FileType>
               <FilePath>..\MyLib\PID.h</FilePath>
             </File>
+            <File>
+              <FileName>PWM.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\MyLib\PWM.c</FilePath>
+            </File>
+            <File>
+              <FileName>PWM.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\MyLib\PWM.h</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>
@@ -2539,6 +2549,16 @@
               <FileName>PID.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\MyLib\PID.h</FilePath>
+            </File>
+            <File>
+              <FileName>PWM.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\MyLib\PWM.c</FilePath>
+            </File>
+            <File>
+              <FileName>PWM.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\MyLib\PWM.h</FilePath>
             </File>
           </Files>
         </Group>

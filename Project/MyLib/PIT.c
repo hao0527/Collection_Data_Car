@@ -15,7 +15,7 @@ void PIT_IRQHandler(void)
     if(PIT_FLAG_GET(PIT_CH0))
     {
         PIT_FLAG_CLEAR(PIT_CH0);
-        //中断函数
+        PUTOUT_PWM();                       //输出PWM波
     }
     
     if(PIT_FLAG_GET(PIT_CH1))
@@ -23,6 +23,7 @@ void PIT_IRQHandler(void)
         PIT_FLAG_CLEAR(PIT_CH1);
         Get_ADC();                          //获取电感值
         ADC_Compare();                      //计算diff与Normalization
+        GET_PWM();                          //控制算法计算PWM
     }
     
     if(PIT_FLAG_GET(PIT_CH2))

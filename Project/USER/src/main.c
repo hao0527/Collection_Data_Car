@@ -3,7 +3,7 @@
  * @Version         通过传统控制采集电感值与舵机PWM
  * @Software        MDK 5.28
  * @Core            NXP RT1021DAG5A
- * @Date            2020-03-22
+ * @Date            2020-03-23
  * @Encoding        GB2312
  * @TabSize         4 Spaces
  * @GitHub          https://github.com/hao0527/Collection_Data_Car
@@ -19,6 +19,7 @@ void main(void)
     DisableGlobalIRQ();
     board_init();                   //务必保留，本函数用于初始化MPU 时钟 调试串口
     DG_ADC_Init();                  //电感ADC初始化
+    PWM_allocation_init();          //配置PWM输出管脚
 
     //此处编写用户代码(例如：外设初始化代码等)
     PIT_allocation_init();          //配置中断服务函数
