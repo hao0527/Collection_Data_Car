@@ -18,8 +18,11 @@ void main(void)
 {
     DisableGlobalIRQ();
     board_init();                   //务必保留，本函数用于初始化MPU 时钟 调试串口
+    BEEP_Init();
+    Key_allocation_init();
     DG_ADC_Init();                  //电感ADC初始化
     PWM_allocation_init();          //配置PWM输出管脚
+    BMQ_allocation_init();
 
     //此处编写用户代码(例如：外设初始化代码等)
     PIT_allocation_init();          //配置中断服务函数

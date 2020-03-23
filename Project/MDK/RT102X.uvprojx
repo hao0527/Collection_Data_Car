@@ -1281,6 +1281,36 @@
               <FileType>5</FileType>
               <FilePath>..\MyLib\PWM.h</FilePath>
             </File>
+            <File>
+              <FileName>Beep.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\MyLib\Beep.c</FilePath>
+            </File>
+            <File>
+              <FileName>Beep.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\MyLib\Beep.h</FilePath>
+            </File>
+            <File>
+              <FileName>BianMaQi.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\MyLib\BianMaQi.c</FilePath>
+            </File>
+            <File>
+              <FileName>BianMaQi.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\MyLib\BianMaQi.h</FilePath>
+            </File>
+            <File>
+              <FileName>Key.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\MyLib\Key.c</FilePath>
+            </File>
+            <File>
+              <FileName>Key.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\MyLib\Key.h</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>
@@ -2559,6 +2589,36 @@
               <FileName>PWM.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\MyLib\PWM.h</FilePath>
+            </File>
+            <File>
+              <FileName>Beep.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\MyLib\Beep.c</FilePath>
+            </File>
+            <File>
+              <FileName>Beep.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\MyLib\Beep.h</FilePath>
+            </File>
+            <File>
+              <FileName>BianMaQi.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\MyLib\BianMaQi.c</FilePath>
+            </File>
+            <File>
+              <FileName>BianMaQi.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\MyLib\BianMaQi.h</FilePath>
+            </File>
+            <File>
+              <FileName>Key.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\MyLib\Key.c</FilePath>
+            </File>
+            <File>
+              <FileName>Key.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\MyLib\Key.h</FilePath>
             </File>
           </Files>
         </Group>

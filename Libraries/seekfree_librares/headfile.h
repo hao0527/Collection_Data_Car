@@ -79,5 +79,8 @@
 #include "PIT.h"
 #include "PID.h"
 #include "PWM.h"
+#include "BianMaQi.h"
+#include "Key.h"
+#include "Beep.h"
 
 #endif
