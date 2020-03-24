@@ -82,5 +82,7 @@
 #include "BianMaQi.h"
 #include "Key.h"
 #include "Beep.h"
+#include "MPU6050.h"
+#include "Collection.h"
 
 #endif

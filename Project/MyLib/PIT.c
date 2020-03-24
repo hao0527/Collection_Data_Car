@@ -21,10 +21,11 @@ void PIT_IRQHandler(void)
     if(PIT_FLAG_GET(PIT_CH1))
     {
         PIT_FLAG_CLEAR(PIT_CH1);
-        Get_ADC();                          //获取电感值
+        Get_ADC();                          //采集5个前瞻电感值
         ADC_Compare();                      //计算diff与Normalization
         Get_Speed();                        //读取编码器
         GET_PWM();                          //控制算法计算PWM
+        ad_collection();                    //采集7个电感值
     }
     
     if(PIT_FLAG_GET(PIT_CH2))

@@ -3,7 +3,7 @@
 
 
 extern int PID, PWM_DianJi_L, PWM_DianJi_R;
-extern int PWM_DuoJi;
+extern int PWM_DuoJi, DuoJi_Mid;
 extern int DuoJi_Left, DuoJi_Right; 
 
 int PWM_Limit(int value,int limit);

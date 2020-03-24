@@ -3,7 +3,7 @@
 //不到2.5m双电机差速控制不需要
 
 int PID, PWM_DianJi_L, PWM_DianJi_R;                //全局变量
-int PWM_DuoJi=3118;                                 //全局变量
+int PWM_DuoJi=3118, DuoJi_Mid;                      //全局变量
 int DuoJi_Left=2417, DuoJi_Right=3817;              //全局变量
 
 

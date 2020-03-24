@@ -8,7 +8,7 @@
 ******************************/
 
 float XL, YL, XM, YR, XR;                                                           //全局变量
-float X1, X2, X3, X4, X5, X6, X7;                                                   //全局变量
+int X1, X2, X3, X4, X5, X6, X7;                                                     //全局变量
 float diffX, diffY;                                                                 //全局变量
 float NormalizationX, NormalizationY;                                               //全局变量
 int Max_DG=303 , Min_DG=0;                                                          //电感上标定值，下标定值
@@ -38,52 +38,52 @@ void Get_ADC()
     XM = adc_mean_filter(ADC_1,ADC1_CH0_B12,12);
     YR = adc_mean_filter(ADC_1,ADC1_CH0_B12,12);
     XR = adc_mean_filter(ADC_1,ADC1_CH0_B12,12);
-    X1 = adc_mean_filter(ADC_1,ADC1_CH0_B12,12);
-    X2 = adc_mean_filter(ADC_1,ADC1_CH0_B12,12);
-    X3 = adc_mean_filter(ADC_1,ADC1_CH0_B12,12);
-    X4 = adc_mean_filter(ADC_1,ADC1_CH0_B12,12);
-    X5 = adc_mean_filter(ADC_1,ADC1_CH0_B12,12);
-    X6 = adc_mean_filter(ADC_1,ADC1_CH0_B12,12);
-    X7 = adc_mean_filter(ADC_1,ADC1_CH0_B12,12);
+//    X1 = adc_mean_filter(ADC_1,ADC1_CH0_B12,12);                                  //这7个电感写到Collection.c里了
+//    X2 = adc_mean_filter(ADC_1,ADC1_CH0_B12,12);
+//    X3 = adc_mean_filter(ADC_1,ADC1_CH0_B12,12);
+//    X4 = adc_mean_filter(ADC_1,ADC1_CH0_B12,12);
+//    X5 = adc_mean_filter(ADC_1,ADC1_CH0_B12,12);
+//    X6 = adc_mean_filter(ADC_1,ADC1_CH0_B12,12);
+//    X7 = adc_mean_filter(ADC_1,ADC1_CH0_B12,12);
     
     XL = ((XL - Min_DG)/Max_DG) * 100.f;                                            //归一化   Value = ((Expression-Min)/Max)*100.0f
     YL = ((YL - Min_DG)/Max_DG) * 100.f;
     XM = ((XM - Min_DG)/Max_DG) * 100.f;
     YR = ((YR - Min_DG)/Max_DG) * 100.f;
     XR = ((XR - Min_DG)/Max_DG) * 100.f;
-    X1 = ((X1 - Min_DG)/Max_DG) * 100.f;
-    X2 = ((X2 - Min_DG)/Max_DG) * 100.f;
-    X3 = ((X3 - Min_DG)/Max_DG) * 100.f;
-    X4 = ((X4 - Min_DG)/Max_DG) * 100.f;
-    X5 = ((X5 - Min_DG)/Max_DG) * 100.f;
-    X6 = ((X6 - Min_DG)/Max_DG) * 100.f;
-    X7 = ((X7 - Min_DG)/Max_DG) * 100.f;
+//    X1 = ((X1 - Min_DG)/Max_DG) * 100.f;
+//    X2 = ((X2 - Min_DG)/Max_DG) * 100.f;
+//    X3 = ((X3 - Min_DG)/Max_DG) * 100.f;
+//    X4 = ((X4 - Min_DG)/Max_DG) * 100.f;
+//    X5 = ((X5 - Min_DG)/Max_DG) * 100.f;
+//    X6 = ((X6 - Min_DG)/Max_DG) * 100.f;
+//    X7 = ((X7 - Min_DG)/Max_DG) * 100.f;
     
     XL = XL > 99.9f ? 99.9f : XL;                                                   //归一化限幅
     YL = YL > 99.0f ? 99.0f : YL;
     XM = XM > 99.0f ? 99.0f : XM;
     YR = YR > 99.0f ? 99.0f : YR;
     XR = XR > 99.0f ? 99.0f : XR;
-    X1 = X1 > 99.0f ? 99.0f : X1;
-    X2 = X2 > 99.0f ? 99.0f : X2;
-    X3 = X3 > 99.0f ? 99.0f : X3;
-    X4 = X4 > 99.0f ? 99.0f : X4;
-    X5 = X5 > 99.0f ? 99.0f : X5;
-    X6 = X6 > 99.0f ? 99.0f : X6;
-    X7 = X7 > 99.0f ? 99.0f : X7;
+//    X1 = X1 > 99.0f ? 99.0f : X1;
+//    X2 = X2 > 99.0f ? 99.0f : X2;
+//    X3 = X3 > 99.0f ? 99.0f : X3;
+//    X4 = X4 > 99.0f ? 99.0f : X4;
+//    X5 = X5 > 99.0f ? 99.0f : X5;
+//    X6 = X6 > 99.0f ? 99.0f : X6;
+//    X7 = X7 > 99.0f ? 99.0f : X7;
 
     XL = XL <5.0f ? 1.0f : XL;                                                      //最小值限幅
     YL = YL <5.0f ? 1.0f : YL;
     XM = XM <5.0f ? 1.0f : XM;
     YR = YR <5.0f ? 1.0f : YR;
     XR = XR <5.0f ? 1.0f : XR;
-    X1 = X1 <5.0f ? 1.0f : X1;
-    X2 = X2 <5.0f ? 1.0f : X2;
-    X3 = X3 <5.0f ? 1.0f : X3;
-    X4 = X4 <5.0f ? 1.0f : X4;
-    X5 = X5 <5.0f ? 1.0f : X5;
-    X6 = X6 <5.0f ? 1.0f : X6;
-    X7 = X7 <5.0f ? 1.0f : X7;
+//    X1 = X1 <5.0f ? 1.0f : X1;
+//    X2 = X2 <5.0f ? 1.0f : X2;
+//    X3 = X3 <5.0f ? 1.0f : X3;
+//    X4 = X4 <5.0f ? 1.0f : X4;
+//    X5 = X5 <5.0f ? 1.0f : X5;
+//    X6 = X6 <5.0f ? 1.0f : X6;
+//    X7 = X7 <5.0f ? 1.0f : X7;
 }
 
 void ADC_Compare()

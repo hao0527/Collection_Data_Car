@@ -1,5 +1,7 @@
 ## 更新说明
 
+（2020.03.24）v1.4添加MPU6050、Collection
+
 （2020.03.23）v1.3添加BianMaQi、Key、Beep
 
 （2020.03.23）v1.2添加了PID、PWM

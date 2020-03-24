@@ -1311,6 +1311,26 @@
               <FileType>5</FileType>
               <FilePath>..\MyLib\Key.h</FilePath>
             </File>
+            <File>
+              <FileName>MPU6050.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\MyLib\MPU6050.c</FilePath>
+            </File>
+            <File>
+              <FileName>MPU6050.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\MyLib\MPU6050.h</FilePath>
+            </File>
+            <File>
+              <FileName>Collection.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\MyLib\Collection.c</FilePath>
+            </File>
+            <File>
+              <FileName>Collection.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\MyLib\Collection.h</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>
@@ -2619,6 +2639,26 @@
               <FileName>Key.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\MyLib\Key.h</FilePath>
+            </File>
+            <File>
+              <FileName>MPU6050.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\MyLib\MPU6050.c</FilePath>
+            </File>
+            <File>
+              <FileName>MPU6050.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\MyLib\MPU6050.h</FilePath>
+            </File>
+            <File>
+              <FileName>Collection.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\MyLib\Collection.c</FilePath>
+            </File>
+            <File>
+              <FileName>Collection.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\MyLib\Collection.h</FilePath>
             </File>
           </Files>
         </Group>

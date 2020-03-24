@@ -71,6 +71,7 @@ void  mpu6050_init(void);													//初始化MPU6050
 void  get_accdata(void);
 void  get_gyro(void);
 
+void  mpu6050_self2_check(void);        //添加函数声明 By:yh Date：2020.03.24
 void  mpu6050_init_hardware(void);
 void  get_accdata_hardware(void);
 void  get_gyro_hardware(void);

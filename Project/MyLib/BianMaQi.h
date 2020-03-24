@@ -5,7 +5,7 @@ extern int SPEED_DianJi_L, SPEED_DianJi_R, Speed_Mode;                       //È
 
 void BMQ_allocation_init();
 void Get_Speed();
-int Get_Speed_aim(int flag);
+//int Get_Speed_aim(int flag);
 
 
 #endif

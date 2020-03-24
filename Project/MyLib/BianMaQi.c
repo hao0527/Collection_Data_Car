@@ -16,9 +16,9 @@ void Get_Speed()
     qtimer_quad_clear(QTIMER_1, QTIMER1_TIMER0_D0);                             //计数清零
 }
 
-int Get_Speed_aim(int flag)
-{
-//    int Speed_aim = 0;
+//int Get_Speed_aim(int flag)           //新的放到MPU6050.c里了
+//{
+//    int Speed_aim = 0;        //局部变量
 //    switch (Speed_Mode)
 //    {
 //        case 0:
@@ -67,7 +67,7 @@ int Get_Speed_aim(int flag)
 //        }
 //        break;
 //    }
-    return -1;
-}
+//    return -1;
+//}
 
 
