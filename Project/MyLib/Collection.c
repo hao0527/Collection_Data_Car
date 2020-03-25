@@ -5,13 +5,13 @@ int collection_succes;                               //全局变量  1：ad数据采集完
 
 void ad_collection(void)
 {
-    X1 = adc_mean_filter(ADC_1,ADC1_CH0_B12,12);
-    X2 = adc_mean_filter(ADC_1,ADC1_CH0_B12,12);
-    X3 = adc_mean_filter(ADC_1,ADC1_CH0_B12,12);
-    X4 = adc_mean_filter(ADC_1,ADC1_CH0_B12,12);
-    X5 = adc_mean_filter(ADC_1,ADC1_CH0_B12,12);
-    X6 = adc_mean_filter(ADC_1,ADC1_CH0_B12,12);
-    X7 = adc_mean_filter(ADC_1,ADC1_CH0_B12,12);
+    X1 = adc_mid_mean_filter1(ADC_1,ADC1_CH0_B12,12);
+    X2 = adc_mid_mean_filter1(ADC_1,ADC1_CH0_B12,12);
+    X3 = adc_mid_mean_filter1(ADC_1,ADC1_CH0_B12,12);
+    X4 = adc_mid_mean_filter1(ADC_1,ADC1_CH0_B12,12);
+    X5 = adc_mid_mean_filter1(ADC_1,ADC1_CH0_B12,12);
+    X6 = adc_mid_mean_filter1(ADC_1,ADC1_CH0_B12,12);
+    X7 = adc_mid_mean_filter1(ADC_1,ADC1_CH0_B12,12);
 
     collection_succes = 1;
 }

@@ -1,6 +1,7 @@
 #ifndef __PID_H__
 #define __PID_H__
 
+#include "common.h"
 
 int PID_Limit(int value,int limit);
 int Pid_Count_0(int aim,float proportion,float integral,float differential,float practical);

@@ -8,7 +8,7 @@
 ******************************/
 
 float XL, YL, XM, YR, XR;                                                           //全局变量
-int X1, X2, X3, X4, X5, X6, X7;                                                     //全局变量
+uint16 X1, X2, X3, X4, X5, X6, X7;                                                  //全局变量
 float diffX, diffY;                                                                 //全局变量
 float NormalizationX, NormalizationY;                                               //全局变量
 int Max_DG=303 , Min_DG=0;                                                          //电感上标定值，下标定值
@@ -32,12 +32,11 @@ void DG_ADC_Init()                                                              
 
 void Get_ADC()
 {
-    //后期换中值均值滤波
-    XL = adc_mean_filter(ADC_1,ADC1_CH0_B12,12);                                    //ADC1模块的0通道(使用B12引脚)转换10次，返回平均值
-    YL = adc_mean_filter(ADC_1,ADC1_CH0_B12,12);
-    XM = adc_mean_filter(ADC_1,ADC1_CH0_B12,12);
-    YR = adc_mean_filter(ADC_1,ADC1_CH0_B12,12);
-    XR = adc_mean_filter(ADC_1,ADC1_CH0_B12,12);
+    XL = adc_mid_mean_filter1(ADC_1,ADC1_CH0_B12,12);                               //ADC1模块的0通道(使用B12引脚)转换10次，返回中值平均值
+    YL = adc_mid_mean_filter1(ADC_1,ADC1_CH0_B12,12);
+    XM = adc_mid_mean_filter1(ADC_1,ADC1_CH0_B12,12);
+    YR = adc_mid_mean_filter1(ADC_1,ADC1_CH0_B12,12);
+    XR = adc_mid_mean_filter1(ADC_1,ADC1_CH0_B12,12);
 //    X1 = adc_mean_filter(ADC_1,ADC1_CH0_B12,12);                                  //这7个电感写到Collection.c里了
 //    X2 = adc_mean_filter(ADC_1,ADC1_CH0_B12,12);
 //    X3 = adc_mean_filter(ADC_1,ADC1_CH0_B12,12);

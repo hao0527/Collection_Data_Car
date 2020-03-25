@@ -165,3 +165,80 @@ uint16 adc_mean_filter(ADCN_enum adcn, ADCCH_enum ch, uint8 count)
     sum = sum/count;
     return sum;
 }
+
+
+//-------------------------------------------------------------------------------------------------------------------
+//  @brief      ADC中值均值滤波（只能去1个最值）
+//  @param      adcn            选择ADC模块(ADC_1、ADC_2)
+//  @param      ch              选择ADC通道
+//  @param      count           均值滤波次数
+//  @return     void
+//  Sample usage:				adc_mid_mean_filter1(ADC_1,ADC1_CH0_B12,10);ADC1模块的0通道(使用B12引脚)转换10次，返回平均值
+//-------------------------------------------------------------------------------------------------------------------
+uint16 adc_mid_mean_filter1(ADCN_enum adcn, ADCCH_enum ch, uint8 count)
+{
+    uint8 i;
+    uint32 sum;
+    uint16 ad, max, min;
+    
+    assert(count);//断言次数不能为0
+    
+    sum = 0;
+    for(i=0,max=0,min=65535; i<count; i++)
+    {
+        ad = adc_convert(adcn,ch);
+        sum += ad;
+        if(ad>max) max=ad;
+        else if(ad<min) min=ad;
+    }
+    
+    sum = (sum-max-min)/(count-2);
+    return sum;
+}
+
+
+
+//-------------------------------------------------------------------------------------------------------------------
+//  @brief      ADC中值均值滤波
+//  @param      adcn            选择ADC模块(ADC_1、ADC_2)
+//  @param      ch              选择ADC通道
+//  @param      count           采样总次数
+//  @param      kill            去最值数量
+//  @return     void
+//  Sample usage:				adc_mid_mean_filter2(ADC_1,ADC1_CH0_B12,12,1);ADC1模块的0通道(使用B12引脚)转换12次，去1个最大值和1个最小值，返回平均值
+//-------------------------------------------------------------------------------------------------------------------
+uint16 adc_mid_mean_filter2(ADCN_enum adcn, ADCCH_enum ch, uint8 count, uint8 kill)
+{
+    uint8 i,j,k;
+    uint32 sum=0;
+    uint16 ad[20];
+    uint16 buf;
+    
+    assert(count);//断言次数不能为0
+    
+    for(i=0; i<count; i++)      //采集
+    {
+        ad[i] = adc_convert(adcn,ch);
+    }
+    
+    for (k=0; k<count-1; ++k)   //冒泡排序
+    {
+        for (j=0; j<count-1-k; ++j)
+        {
+            if (ad[j] < ad[j+1])
+            {
+                buf = ad[j];
+                ad[j] = ad[j+1];
+                ad[j+1] = buf;
+            }
+        }
+    }
+    
+    for(i=kill; i<count-kill; i++)
+    {
+        sum += ad[i];
+    }
+    
+    sum = sum/(count-kill*2);
+    return sum;
+}

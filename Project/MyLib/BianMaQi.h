@@ -1,6 +1,8 @@
 #ifndef __BIANMAQI_H__
 #define __BIANMAQI_H__
 
+#include "common.h"
+
 extern int SPEED_DianJi_L, SPEED_DianJi_R, Speed_Mode;                       //全局变量
 
 void BMQ_allocation_init();

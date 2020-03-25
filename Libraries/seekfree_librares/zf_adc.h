@@ -89,6 +89,8 @@ typedef enum    // Ã¶¾ÙADC±àºÅ
 void adc_init(ADCN_enum adcn, ADCCH_enum ch, ADCRES_enum resolution);
 uint16 adc_convert(ADCN_enum adcn, ADCCH_enum ch);
 uint16 adc_mean_filter(ADCN_enum adcn, ADCCH_enum ch, uint8 count);
+uint16 adc_mid_mean_filter1(ADCN_enum adcn, ADCCH_enum ch, uint8 count);
+uint16 adc_mid_mean_filter2(ADCN_enum adcn, ADCCH_enum ch, uint8 count, uint8 kill);
 
 
 

@@ -1,6 +1,8 @@
 #ifndef __Key_H__
 #define __Key_H__
 
+#include "common.h"
+
 #define AJ1IO D14                   //宏定义IO管脚设置
 #define AJ2IO D14
 #define AJ3IO D14

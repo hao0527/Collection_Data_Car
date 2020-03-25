@@ -3,7 +3,7 @@
  * @Version         通过传统控制采集电感值与舵机PWM
  * @Software        MDK 5.28
  * @Core            NXP RT1021DAG5A
- * @Date            2020-03-24
+ * @Date            2020-03-25
  * @Encoding        GB2312
  * @TabSize         4 Spaces
  * @GitHub          https://github.com/hao0527/Collection_Data_Car

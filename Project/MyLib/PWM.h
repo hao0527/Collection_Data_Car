@@ -1,6 +1,7 @@
 #ifndef __PWM_H__
 #define __PWM_H__
 
+#include "common.h"
 
 extern int PID, PWM_DianJi_L, PWM_DianJi_R;
 extern int PWM_DuoJi, DuoJi_Mid;
