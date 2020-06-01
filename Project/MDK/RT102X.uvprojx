@@ -1331,6 +1331,16 @@
               <FileType>5</FileType>
               <FilePath>..\MyLib\Collection.h</FilePath>
             </File>
+            <File>
+              <FileName>BT.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\MyLib\BT.c</FilePath>
+            </File>
+            <File>
+              <FileName>BT.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\MyLib\BT.h</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>
@@ -2659,6 +2669,16 @@
               <FileName>Collection.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\MyLib\Collection.h</FilePath>
+            </File>
+            <File>
+              <FileName>BT.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\MyLib\BT.c</FilePath>
+            </File>
+            <File>
+              <FileName>BT.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\MyLib\BT.h</FilePath>
             </File>
           </Files>
         </Group>
