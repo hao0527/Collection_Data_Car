@@ -3,8 +3,8 @@
 //²»µ½2.5mË«µç»ú²îËÙ¿ØÖÆ²»ÐèÒª
 
 int PID, PWM_DianJi_L, PWM_DianJi_R;                //È«¾Ö±äÁ¿
-int PWM_DuoJi=3118, DuoJi_Mid;                      //È«¾Ö±äÁ¿
-int DuoJi_Left=2417, DuoJi_Right=3817;              //È«¾Ö±äÁ¿
+int PWM_DuoJi=3630, DuoJi_Mid;                      //È«¾Ö±äÁ¿
+int DuoJi_Left=4005, DuoJi_Right=3245;              //È«¾Ö±äÁ¿
 
 
 int PWM_Limit(int value,int limit)                  //¶ÔvalueÏÞ·ùÔÚ£¨1£¬limit£©·¶Î§
@@ -23,18 +23,18 @@ int DuoJi_PWM_Limit(int value)                      //¶ÔvalueÏÞ·ùÔÚ£¨2417£¬3817£
 
 void PWM_allocation_init()                          //ÅäÖÃPWMÊä³ö¹Ü½Å
 {
-    pwm_init(PWM1_MODULE0_CHB_B23, 15000, 0);       //µç»ú£¨ÆµÂÊ¸ø15kHz£©×î´óÕ¼¿Õ±ÈÄ¬ÈÏÎª50000
-    pwm_init(PWM1_MODULE0_CHB_B23, 15000, 0);
+    pwm_init(PWM2_MODULE3_CHA_C28, 15000, 0);       //µç»ú£¨ÆµÂÊ¸ø15kHz£©×î´óÕ¼¿Õ±ÈÄ¬ÈÏÎª50000
+    pwm_init(PWM2_MODULE2_CHA_C30, 15000, 0);
     
-    pwm_init(PWM1_MODULE0_CHB_B23, 200, 0);         //¶æ»ú
+    pwm_init(PWM1_MODULE0_CHB_C27, 50, 0);         //¶æ»ú
 }  
 
 void PUTOUT_PWM()                                   //Êä³öPWM²¨
 {
-    pwm_duty(PWM1_MODULE0_CHB_B23, PWM_DianJi_L);   //µç»ú
-    pwm_duty(PWM1_MODULE0_CHB_B23, PWM_DianJi_R);
+    pwm_duty(PWM2_MODULE3_CHA_C28, PWM_DianJi_L);   //µç»ú
+    pwm_duty(PWM2_MODULE2_CHA_C30, PWM_DianJi_R);
     
-    pwm_duty(PWM1_MODULE0_CHB_B23, PWM_DuoJi);      //¶æ»ú
+    pwm_duty(PWM1_MODULE0_CHB_C27, PWM_DuoJi);      //¶æ»ú
 }
 
 void GET_DuoJi_PWM()                                //µ½Ê±ºòÕâÀïÓÃÍÓÂÝÒÇÀ´»ñÈ¡Turn_Flag
@@ -64,8 +64,8 @@ void GET_PWM()
 //    else
 //        PWM_DuoJi=DuoJi_Mid;                //°´¼üµ÷¶æ»ú
     
-    GET_DuoJi_PWM();                        //°´¼üµ÷¶æ»ú×¢ÊÍµôÁË£¬ÏÈÓÃÕâ¸ö
-    PWM_DuoJi = DuoJi_PWM_Limit(PWM_DuoJi);
+//    GET_DuoJi_PWM();                        //°´¼üµ÷¶æ»ú×¢ÊÍµôÁË£¬ÏÈÓÃÕâ¸ö
+//    PWM_DuoJi = DuoJi_PWM_Limit(PWM_DuoJi);
     
 //    PWM_DianJi_L = Pid_Count_SPEED(Get_Speed_aim(Speed_Flag),8,9,10,SPEED_DianJi);
 //    PWM_DianJi_R = Pid_Count_SPEED(Get_Speed_aim(Speed_Flag),8,9,10,SPEED_DianJi);

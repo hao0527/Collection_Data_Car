@@ -32,6 +32,14 @@ void PIT_IRQHandler(void)
     {
         PIT_FLAG_CLEAR(PIT_CH2);
         KeyScan();                          //°´¼ü¸³Öµ
+//				if(AJ1==1) {PWM_DuoJi+=10;  PRINTF("%d\n",PWM_DuoJi);}
+//				if(AJ2==1) {PWM_DuoJi-=10;  PRINTF("%d\n",PWM_DuoJi);}
+//				if(AJ3==1) PRINTF("3");
+
+//				if(BM1==1) PRINTF("1");
+//				if(BM2==1) PRINTF("2");
+//				if(BM3==1) PRINTF("3");
+//				if(BM4==1) PRINTF("4");
 //        if(B1==0&&B2==0&&B4==1&&B4==1) OLED_Flag=0;
 //        if(B1==0&&B2==1&&B4==1&&B4==1) OLED_Flag=1;
 //        if(B1==1&&B2==0&&B4==1&&B4==1) 

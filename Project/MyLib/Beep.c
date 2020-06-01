@@ -1,5 +1,5 @@
 #include "headfile.h"
-#define BeepIO D13                                      //宏定义蜂鸣器IO口
+#define BeepIO C12                                      //宏定义蜂鸣器IO口
 
 void BEEP_Init()
 {

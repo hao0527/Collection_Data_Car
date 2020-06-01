@@ -84,5 +84,6 @@
 #include "Beep.h"
 #include "MPU6050.h"
 #include "Collection.h"
+#include "BT.h"
 
 #endif

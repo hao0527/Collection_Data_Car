@@ -4,16 +4,16 @@ int SPEED_DianJi_L, SPEED_DianJi_R, Speed_Mode=0;                               
 
 void BMQ_allocation_init()                                                      //初始化编码器
 {
-    qtimer_quad_init(QTIMER_1, QTIMER1_TIMER0_D0, QTIMER1_TIMER1_D1);           //L
-    qtimer_quad_init(QTIMER_1, QTIMER1_TIMER0_D0, QTIMER1_TIMER1_D1);           //R
+    qtimer_quad_init(QTIMER_2, QTIMER2_TIMER0_C0, QTIMER2_TIMER1_C1);           //L
+    qtimer_quad_init(QTIMER_2, QTIMER2_TIMER2_C2, QTIMER2_TIMER3_C3);           //R
 }
 
 void Get_Speed()
 {
-    SPEED_DianJi_L = qtimer_quad_get(QTIMER_1, QTIMER1_TIMER0_D0);              //计数获取
-    SPEED_DianJi_R = qtimer_quad_get(QTIMER_1, QTIMER1_TIMER0_D0);
-    qtimer_quad_clear(QTIMER_1, QTIMER1_TIMER0_D0);
-    qtimer_quad_clear(QTIMER_1, QTIMER1_TIMER0_D0);                             //计数清零
+    SPEED_DianJi_L = qtimer_quad_get(QTIMER_2, QTIMER2_TIMER0_C0);              //计数获取
+    SPEED_DianJi_R = qtimer_quad_get(QTIMER_2, QTIMER2_TIMER2_C2);
+    qtimer_quad_clear(QTIMER_2, QTIMER2_TIMER0_C0);
+    qtimer_quad_clear(QTIMER_2, QTIMER2_TIMER2_C2);                             //计数清零
 }
 
 //int Get_Speed_aim(int flag)           //新的放到MPU6050.c里了

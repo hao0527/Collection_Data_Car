@@ -103,7 +103,7 @@
         <bEvRecOn>1</bEvRecOn>
         <bSchkAxf>0</bSchkAxf>
         <bTchkAxf>0</bTchkAxf>
-        <nTsel>3</nTsel>
+        <nTsel>2</nTsel>
         <sDll></sDll>
         <sDllPa></sDllPa>
         <sDlgDll></sDlgDll>
@@ -345,7 +345,7 @@
         <SetRegEntry>
           <Number>0</Number>
           <Key>DLGTARM</Key>
-          <Name>(1010=917,485,1367,1042,0)(6017=-1,-1,-1,-1,0)(1008=-1,-1,-1,-1,0)(6016=1962,332,2220,985,1)(1012=-1,-1,-1,-1,0)</Name>
+          <Name>(1010=917,403,1367,960,0)(6017=-1,-1,-1,-1,0)(1008=-1,-1,-1,-1,0)(6016=1182,307,1440,960,1)(1012=-1,-1,-1,-1,0)</Name>
         </SetRegEntry>
         <SetRegEntry>
           <Number>0</Number>
@@ -355,7 +355,7 @@
         <SetRegEntry>
           <Number>0</Number>
           <Key>CMSIS_AGDI</Key>
-          <Name>-X"SEEKFREE CMSIS-DAP V2" -USF80879828811246 -O974 -S9 -C0 -P00 -N00("ARM CoreSight SW-DP") -D00(0BD11477) -L00(0) -TO65554 -TC10000000 -TT10000000 -TP20 -TDS8007 -TDT0 -TDC1F -TIEFFFFFFFF -TIP8 -FO11 -FD20000000 -FC8000 -FN1 -FF0SEEKFREE_W25Q64JV_QSPI_8M -FS060000000 -FL0800000</Name>
+          <Name>-X"SEEKFREE CMSIS-DAP V2" -USF1213429073-202 -O974 -S8 -C0 -P00 -N00("ARM CoreSight SW-DP") -D00(0BD11477) -L00(0) -TO65554 -TC10000000 -TT10000000 -TP20 -TDS8007 -TDT0 -TDC1F -TIEFFFFFFFF -TIP8 -FO11 -FD20000000 -FC8000 -FN1 -FF0SEEKFREE_W25Q64JV_QSPI_8M -FS060000000 -FL0800000</Name>
         </SetRegEntry>
         <SetRegEntry>
           <Number>0</Number>
@@ -394,6 +394,16 @@
           <count>5</count>
           <WinNumber>1</WinNumber>
           <ItemText>read_data11,0x0A</ItemText>
+        </Ww>
+        <Ww>
+          <count>6</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>PWM_DuoJi,0x0A</ItemText>
+        </Ww>
+        <Ww>
+          <count>7</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>AJ3,0x0A</ItemText>
         </Ww>
       </WatchWindow1>
       <Tracepoint>
@@ -438,6 +448,13 @@
       <pszMrulep></pszMrulep>
       <pSingCmdsp></pSingCmdsp>
       <pMultCmdsp></pMultCmdsp>
+      <DebugDescription>
+        <Enable>1</Enable>
+        <EnableFlashSeq>1</EnableFlashSeq>
+        <EnableLog>0</EnableLog>
+        <Protocol>2</Protocol>
+        <DbgClock>10000000</DbgClock>
+      </DebugDescription>
     </TargetOption>
   </Target>
 
@@ -1511,7 +1528,7 @@
 
   <Group>
     <GroupName>seekfree_librares</GroupName>
-    <tvExp>1</tvExp>
+    <tvExp>0</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -1855,7 +1872,7 @@
 
   <Group>
     <GroupName>seekfree_peripheral</GroupName>
-    <tvExp>1</tvExp>
+    <tvExp>0</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -2271,7 +2288,7 @@
 
   <Group>
     <GroupName>board</GroupName>
-    <tvExp>0</tvExp>
+    <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -2327,7 +2344,7 @@
 
   <Group>
     <GroupName>user_h</GroupName>
-    <tvExp>0</tvExp>
+    <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>

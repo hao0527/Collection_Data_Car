@@ -16,7 +16,7 @@
         <TargetCommonOption>
           <Device>MIMXRT1021DAG5A</Device>
           <Vendor>NXP</Vendor>
-          <PackID>NXP.MIMXRT1021_DFP.11.0.0</PackID>
+          <PackID>NXP.MIMXRT1021_DFP.12.1.0</PackID>
           <PackURL>http://mcuxpresso.nxp.com/cmsis_pack/repo/</PackURL>
           <Cpu>IRAM(0x20000000,0x010000) IRAM2(0x00000000,0x010000) XRAM(0x20200000,0x020000) CPUTYPE("Cortex-M7") FPU3(DFPU) CLOCK(12000000) ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
@@ -1345,7 +1345,7 @@
         <TargetCommonOption>
           <Device>MIMXRT1021DAG5A</Device>
           <Vendor>NXP</Vendor>
-          <PackID>NXP.MIMXRT1021_DFP.11.0.0</PackID>
+          <PackID>NXP.MIMXRT1021_DFP.12.1.0</PackID>
           <PackURL>http://mcuxpresso.nxp.com/cmsis_pack/repo/</PackURL>
           <Cpu>IRAM(0x20000000,0x010000) IRAM2(0x00000000,0x010000) XRAM(0x20200000,0x020000) CPUTYPE("Cortex-M7") FPU3(DFPU) CLOCK(12000000) ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>

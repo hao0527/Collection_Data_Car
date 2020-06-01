@@ -16,27 +16,27 @@ int Max_DG=303 , Min_DG=0;                                                      
 
 void DG_ADC_Init()                                                                  //12个电感ADC初始化
 {
-    adc_init(ADC_1,ADC1_CH0_B12,ADC_8BIT);                                          //初始化ADC1模块的0通道(使用B12引脚) 分辨率为8位 
-    adc_init(ADC_1,ADC1_CH0_B12,ADC_8BIT);
-    adc_init(ADC_1,ADC1_CH0_B12,ADC_8BIT);
-    adc_init(ADC_1,ADC1_CH0_B12,ADC_8BIT);
-    adc_init(ADC_1,ADC1_CH0_B12,ADC_8BIT);
-    adc_init(ADC_1,ADC1_CH0_B12,ADC_8BIT);
-    adc_init(ADC_1,ADC1_CH0_B12,ADC_8BIT);
-    adc_init(ADC_1,ADC1_CH0_B12,ADC_8BIT);
-    adc_init(ADC_1,ADC1_CH0_B12,ADC_8BIT);
-    adc_init(ADC_1,ADC1_CH0_B12,ADC_8BIT);
-    adc_init(ADC_1,ADC1_CH0_B12,ADC_8BIT);
-    adc_init(ADC_1,ADC1_CH0_B12,ADC_8BIT);
+    adc_init(ADC_1,ADC1_CH1_B14,ADC_8BIT);                                          //初始化ADC1模块的0通道(使用B12引脚) 分辨率为8位 
+    adc_init(ADC_1,ADC1_CH2_B15,ADC_8BIT);
+    adc_init(ADC_1,ADC1_CH3_B17,ADC_8BIT);
+    adc_init(ADC_2,ADC2_CH3_B18,ADC_8BIT);
+    adc_init(ADC_1,ADC1_CH4_B19,ADC_8BIT);
+    adc_init(ADC_2,ADC2_CH5_B21,ADC_8BIT);
+    adc_init(ADC_2,ADC2_CH6_B22,ADC_8BIT);
+    adc_init(ADC_2,ADC2_CH7_B23,ADC_8BIT);
+    adc_init(ADC_1,ADC1_CH8_B24,ADC_8BIT);
+    adc_init(ADC_1,ADC1_CH9_B25,ADC_8BIT);
+    adc_init(ADC_1,ADC1_CH10_B26,ADC_8BIT);
+    adc_init(ADC_1,ADC1_CH11_B27,ADC_8BIT);
 }
 
 void Get_ADC()
 {
-    XL = adc_mid_mean_filter1(ADC_1,ADC1_CH0_B12,12);                               //ADC1模块的0通道(使用B12引脚)转换10次，返回中值平均值
-    YL = adc_mid_mean_filter1(ADC_1,ADC1_CH0_B12,12);
-    XM = adc_mid_mean_filter1(ADC_1,ADC1_CH0_B12,12);
-    YR = adc_mid_mean_filter1(ADC_1,ADC1_CH0_B12,12);
-    XR = adc_mid_mean_filter1(ADC_1,ADC1_CH0_B12,12);
+    XL = adc_mid_mean_filter1(ADC_1,ADC1_CH1_B14,12);                               //ADC1模块的0通道(使用B12引脚)转换10次，返回中值平均值
+    YL = adc_mid_mean_filter1(ADC_1,ADC1_CH2_B15,12);
+    XM = adc_mid_mean_filter1(ADC_1,ADC1_CH3_B17,12);
+    YR = adc_mid_mean_filter1(ADC_2,ADC2_CH3_B18,12);
+    XR = adc_mid_mean_filter1(ADC_1,ADC1_CH4_B19,12);
 //    X1 = adc_mean_filter(ADC_1,ADC1_CH0_B12,12);                                  //这7个电感写到Collection.c里了
 //    X2 = adc_mean_filter(ADC_1,ADC1_CH0_B12,12);
 //    X3 = adc_mean_filter(ADC_1,ADC1_CH0_B12,12);
@@ -91,7 +91,7 @@ void ADC_Compare()
     diffX = XL - XR;    //  >0偏右    <0偏左    
     diffY = YL - YR;
     
-    //差比荷
+    //差比和
     NormalizationX = ( (XL - XR) / (XL + XR) )*100;     //-100~100  >0偏右    <0偏左
     NormalizationY = ( (YL - YR) / (YL + YR) )*100;
 }
