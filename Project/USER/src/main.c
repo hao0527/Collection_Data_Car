@@ -3,7 +3,7 @@
  * @Version         通过传统控制采集电感值与舵机PWM
  * @Software        MDK 5.28
  * @Core            NXP RT1021DAG5A
- * @Date            2020-03-25
+ * @Date            2020-06-02
  * @Encoding        GB2312
  * @TabSize         4 Spaces
  * @GitHub          https://github.com/hao0527/Collection_Data_Car
@@ -12,7 +12,46 @@
 
 #include "headfile.h"
 
+uint8 uart_data;
+int i;
+uint8 buff[10];
+
+uint8 example_rx_buffer;
+lpuart_transfer_t   example_receivexfer;
+lpuart_handle_t     example_g_lpuartHandle;
+
+void example_uart_callback(LPUART_Type *base, lpuart_handle_t *handle, status_t status, void *userData)
+{
+    if(kStatus_LPUART_RxIdle == status)
+    {
+        //数据已经被写入到了之前设置的BUFF中
+        //本例程使用的BUFF为 example_rx_buffer
+        uart_data = example_rx_buffer;//将数据取出
+        if(uart_data==0xA5) {i=0;}
+        else if(uart_data==0x5A)
+        {
+//            uart_putbuff(USART_1,&buff[0],4);
+            //校验是否接收错误
+            if((0xff&(buff[0]+buff[1]+buff[2]))==buff[3])
+            {
+                car_mode = buff[0];
+                vx = uint8toint8(buff[1]);
+                vy = uint8toint8(buff[2]);
+            }
+        }
+        else
+        {
+            buff[i]=uart_data;
+            i++;
+        }
+    }
+    
+    handle->rxDataSize = example_receivexfer.dataSize;  //还原缓冲区长度
+    handle->rxData = example_receivexfer.data;          //还原缓冲区地址
+}
+
 uint8 send_buff[11];		        //无线转串口发送数组
+
 
 void main(void)
 {
@@ -27,6 +66,16 @@ void main(void)
     PWM_allocation_init();          //配置PWM输出管脚
     BMQ_allocation_init();          //编码器初始化
 //    seekfree_wireless_init();       //初始化无线转串口模块
+    
+    uart_init(USART_1,115200,UART1_TX_B6,UART1_RX_B7);//串口通信初始化
+    uart_rx_irq(USART_1,1);         //开启串口接收中断
+    
+    //配置串口接收的缓冲区及缓冲区长度
+    example_receivexfer.dataSize = 1;
+    example_receivexfer.data = &example_rx_buffer;
+    
+    //设置中断函数及其参数
+    uart_set_handle(USART_1, &example_g_lpuartHandle, example_uart_callback, NULL, 0, example_receivexfer.data, 1);
     
     PIT_allocation_init();          //配置中断服务函数
     EnableGlobalIRQ(0);             //总中断最后开启

@@ -3,9 +3,10 @@
 //²»µ½2.5mË«µç»ú²îËÙ¿ØÖÆ²»ÐèÒª
 
 int PID, PWM_DianJi_L, PWM_DianJi_R;                //È«¾Ö±äÁ¿
-int PWM_DuoJi=3630, DuoJi_Mid;                      //È«¾Ö±äÁ¿
+int PWM_DuoJi=3630, DuoJi_Mid=3630;                      //È«¾Ö±äÁ¿
 int DuoJi_Left=4005, DuoJi_Right=3245;              //È«¾Ö±äÁ¿
-
+int car_mode;                                       //È«¾Ö±äÁ¿  ³µµÄÄ£Ê½£¬0Îª×Ô¶¯£¬1Î»ÊÖ¶¯
+int LQ,LH,RQ,RH;
 
 int PWM_Limit(int value,int limit)                  //¶ÔvalueÏÞ·ùÔÚ£¨1£¬limit£©·¶Î§
 {
@@ -24,16 +25,18 @@ int DuoJi_PWM_Limit(int value)                      //¶ÔvalueÏÞ·ùÔÚ£¨2417£¬3817£
 void PWM_allocation_init()                          //ÅäÖÃPWMÊä³ö¹Ü½Å
 {
     pwm_init(PWM2_MODULE3_CHA_C28, 15000, 0);       //µç»ú£¨ÆµÂÊ¸ø15kHz£©×î´óÕ¼¿Õ±ÈÄ¬ÈÏÎª50000
+    pwm_init(PWM2_MODULE2_CHB_C31, 15000, 0);
+    pwm_init(PWM2_MODULE3_CHB_C29, 15000, 0);
     pwm_init(PWM2_MODULE2_CHA_C30, 15000, 0);
-    
     pwm_init(PWM1_MODULE0_CHB_C27, 50, 0);         //¶æ»ú
 }  
 
 void PUTOUT_PWM()                                   //Êä³öPWM²¨
 {
-    pwm_duty(PWM2_MODULE3_CHA_C28, PWM_DianJi_L);   //µç»ú
-    pwm_duty(PWM2_MODULE2_CHA_C30, PWM_DianJi_R);
-    
+    pwm_duty(PWM2_MODULE3_CHA_C28, LQ);   //µç»ú
+    pwm_duty(PWM2_MODULE3_CHB_C29, LH);
+    pwm_duty(PWM2_MODULE2_CHB_C31, RQ);
+    pwm_duty(PWM2_MODULE2_CHA_C30, LH);
     pwm_duty(PWM1_MODULE0_CHB_C27, PWM_DuoJi);      //¶æ»ú
 }
 
@@ -57,6 +60,20 @@ void GET_DuoJi_PWM()                                //µ½Ê±ºòÕâÀïÓÃÍÓÂÝÒÇÀ´»ñÈ¡Tu
 
 void GET_PWM()
 {
+    if(car_mode==0)
+    {
+    
+    }
+    else
+    {
+        PWM_DuoJi=DuoJi_Mid-vx*2.9;
+        PWM_DianJi_L=vy*150;
+        PWM_DianJi_R=vy*150;
+        if(PWM_DianJi_L>=0) {LQ=PWM_DianJi_L;LH=0;}
+        else {LH=-PWM_DianJi_L;LQ=0;}
+        if(PWM_DianJi_R>=0) {RQ=PWM_DianJi_R;RH=0;}
+        else {RH=-PWM_DianJi_R;RQ=0;}
+    }
 //    if(OLED_Flag!=3)
 //    {
 //        GET_DuoJi_PWM();
