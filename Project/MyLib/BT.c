@@ -7,7 +7,7 @@ int vx,vy;
 int uint8toint8(uint8 val)
 {
     int intval;
-    if(val>128)intval=val-256;
+    if(val>=128)intval=val-256;
     else intval=val;
     return intval;
 }
@@ -15,7 +15,7 @@ int uint8toint8(uint8 val)
 
 
 
-void receive_car_mode()
-{
-    
-}
+//void receive_car_mode()
+//{
+//    
+//}

@@ -6,7 +6,7 @@ extern int vx,vy;
 
 int uint8toint8(uint8 val);
 
-void receive_car_mode();
+//void receive_car_mode();
 
 
 #endif

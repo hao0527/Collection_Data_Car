@@ -3,7 +3,7 @@
 //不到2.5m双电机差速控制不需要
 
 int PID, PWM_DianJi_L, PWM_DianJi_R;                //全局变量
-int PWM_DuoJi=3630, DuoJi_Mid=3630;                      //全局变量
+int PWM_DuoJi=3722, DuoJi_Mid=3722;                      //全局变量
 int DuoJi_Left=4005, DuoJi_Right=3245;              //全局变量
 int car_mode;                                       //全局变量  车的模式，0为自动，1位手动
 int LQ,LH,RQ,RH;
@@ -66,7 +66,7 @@ void GET_PWM()
     }
     else
     {
-        PWM_DuoJi=DuoJi_Mid-vx*2.9;
+        PWM_DuoJi=DuoJi_Mid-vx*3.0;
         PWM_DianJi_L=vy*150;
         PWM_DianJi_R=vy*150;
         if(PWM_DianJi_L>=0) {LQ=PWM_DianJi_L;LH=0;}

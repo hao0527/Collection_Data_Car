@@ -6,7 +6,7 @@ void PIT_allocation_init()                  //配置中断服务函数
     
     pit_interrupt_ms(PIT_CH0,10);           //初始化pit通道0 周期10ms
     pit_interrupt_ms(PIT_CH1,5);
-    pit_interrupt_ms(PIT_CH2,20);
+    pit_interrupt_ms(PIT_CH2,50);
 //    pit_interrupt_ms(PIT_CH3,500);
 }
 
@@ -40,7 +40,7 @@ void PIT_IRQHandler(void)
 //				if(BM2==1) PRINTF("2");
 //				if(BM3==1) PRINTF("3");
 //				if(BM4==1) PRINTF("4");
-//        if(B1==0&&B2==0&&B4==1&&B4==1) OLED_Flag=0;
+        if(BM1==0&&BM2==0&&BM4==1&&BM4==1) {OLED_Flag=0;}
 //        if(B1==0&&B2==1&&B4==1&&B4==1) OLED_Flag=1;
 //        if(B1==1&&B2==0&&B4==1&&B4==1) 
 //        {
@@ -57,6 +57,7 @@ void PIT_IRQHandler(void)
 //            if(S2==1) {DuoJi_Mid+=1;if(DuoJi_Mid<DuoJi_Left) DuoJi_Mid=DuoJi_Left;if(DuoJi_Mid>DuoJi_Right) DuoJi_Mid=DuoJi_Right;}
 //        }
 //        if(B1==0&&B2==0&&B4==0&&B4==0) OLED_Flag=4;
+        oled_show();
     }
     
 //    if(PIT_FLAG_GET(PIT_CH3))

@@ -1341,6 +1341,16 @@
               <FileType>5</FileType>
               <FilePath>..\MyLib\BT.h</FilePath>
             </File>
+            <File>
+              <FileName>oled.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\MyLib\oled.c</FilePath>
+            </File>
+            <File>
+              <FileName>oled.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\MyLib\oled.h</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>
@@ -2679,6 +2689,16 @@
               <FileName>BT.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\MyLib\BT.h</FilePath>
+            </File>
+            <File>
+              <FileName>oled.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\MyLib\oled.c</FilePath>
+            </File>
+            <File>
+              <FileName>oled.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\MyLib\oled.h</FilePath>
             </File>
           </Files>
         </Group>

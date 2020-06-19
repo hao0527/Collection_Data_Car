@@ -85,5 +85,6 @@
 #include "MPU6050.h"
 #include "Collection.h"
 #include "BT.h"
+#include "oled.h"
 
 #endif

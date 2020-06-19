@@ -60,6 +60,7 @@ void main(void)
     
     BEEP_Init();                    //蜂鸣器初始化
     Key_allocation_init();          //按键拨码器初始化
+    oled_init();                    //OLED初始化函数
 //    mpu6050_self2_check();          //MPU6050自检函数
 //    mpu6050_init_hardware();        //MPU6050初始化
     DG_ADC_Init();                  //电感ADC初始化
