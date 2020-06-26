@@ -11,12 +11,14 @@ void Key_allocation_init()
     gpio_init (AJ1IO, GPI, 1, GPIO_PIN_CONFIG);                         //初始化  管脚为输入        AJ1        
     gpio_init (AJ2IO, GPI, 1, GPIO_PIN_CONFIG);                         //初始化  管脚为输入        AJ2              
     gpio_init (AJ3IO, GPI, 1, GPIO_PIN_CONFIG);                         //初始化  管脚为输入        AJ3                    
-    
+
     //拨码开关
     gpio_init (BM1IO, GPI, 0, GPIO_PIN_CONFIG);                         //初始化  管脚为输入        BM4 
     gpio_init (BM2IO, GPI, 0, GPIO_PIN_CONFIG);                         //初始化  管脚为输入        BM3
     gpio_init (BM3IO, GPI, 0, GPIO_PIN_CONFIG);                         //初始化  管脚为输入        BM2
     gpio_init (BM4IO, GPI, 0, GPIO_PIN_CONFIG);                         //初始化  管脚为输入        BM1
+
+//    gpio_init (C15, GPO, 0, GPIO_PIN_CONFIG);
 }
 
 void KeyScan()

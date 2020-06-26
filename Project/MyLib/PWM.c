@@ -36,7 +36,7 @@ void PUTOUT_PWM()                                   //输出PWM波
     pwm_duty(PWM2_MODULE3_CHA_C28, LQ);   //电机
     pwm_duty(PWM2_MODULE3_CHB_C29, LH);
     pwm_duty(PWM2_MODULE2_CHB_C31, RQ);
-    pwm_duty(PWM2_MODULE2_CHA_C30, LH);
+    pwm_duty(PWM2_MODULE2_CHA_C30, RH);
     pwm_duty(PWM1_MODULE0_CHB_C27, PWM_DuoJi);      //舵机
 }
 
@@ -67,8 +67,8 @@ void GET_PWM()
     else
     {
         PWM_DuoJi=DuoJi_Mid-vx*3.0;
-        PWM_DianJi_L=vy*150;
-        PWM_DianJi_R=vy*150;
+        PWM_DianJi_L=vy*380;
+        PWM_DianJi_R=vy*380;
         if(PWM_DianJi_L>=0) {LQ=PWM_DianJi_L;LH=0;}
         else {LH=-PWM_DianJi_L;LQ=0;}
         if(PWM_DianJi_R>=0) {RQ=PWM_DianJi_R;RH=0;}
